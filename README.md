@@ -1,10 +1,10 @@
-# John Doe — Portfolio Website
+# Daniel Carril — Portfolio Website
 
 A clean, modern, SEO-optimised personal portfolio landing page for a freelance full-stack developer.
 
 ## 🌐 Live Site
 
-[johndoe.dev](https://www.johndoe.dev) _(update this link once deployed)_
+[danielcarril.com](https://www.daielcarril.com) _(update this link once deployed)_
 
 ---
 
@@ -134,13 +134,3 @@ This site can be deployed for free on any static hosting platform:
 | Scripts | Vanilla JavaScript (ES6+)                                                                                              |
 | Fonts   | [Syne](https://fonts.google.com/specimen/Syne) + [DM Sans](https://fonts.google.com/specimen/DM+Sans) via Google Fonts |
 | Icons   | Inline SVG                                                                                                             |
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-_Built with care. No frameworks harmed in the making of this page._
