@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!--
+    sitemap.xml — Daniel Carril Portfolio
+    Update the <loc> URLs below to match your real domain before deploying.
+    Submit this sitemap to Google Search Console after launch:
+    https://search.google.com/search-console
+  -->
+
+  <url>
+    <loc>https://www.danielcarril.com</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+</urlset>
