@@ -1,0 +1,9 @@
+# robots.txt — Daniel Carril Portfolio
+# https://www.danielcarril.com
+
+# Allow all search engine crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.danielcarril.com/sitemap.xml
