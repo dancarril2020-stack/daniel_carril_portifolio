@@ -163,28 +163,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────────────
-     CONTACT FORM — basic client-side feedback
+     CONTACT FORM — Formspree submission
   ───────────────────────────────────────── */
   const form = document.querySelector('.contact-form');
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const btn = form.querySelector('.btn-submit');
-      const originalText = btn.innerHTML;
+      const btn          = form.querySelector('.btn-submit');
+      const originalHTML = btn.innerHTML;
+      const data         = new FormData(form);
 
-      // Simple visual feedback — replace with real form handler (Formspree, EmailJS, etc.)
-      btn.innerHTML = 'Message sent ✓';
+      btn.disabled   = true;
+      btn.innerHTML  = 'Sending…';
       btn.style.opacity = '0.7';
-      btn.disabled = true;
 
-      setTimeout(() => {
-        btn.innerHTML = originalText;
-        btn.style.opacity = '';
-        btn.disabled = false;
-        form.reset();
-      }, 3000);
+      try {
+        const res = await fetch(form.action, {
+          method:  'POST',
+          body:    data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          btn.innerHTML      = 'Message sent ✓';
+          btn.style.opacity  = '1';
+          btn.style.color    = 'var(--green)';
+          form.reset();
+
+          setTimeout(() => {
+            btn.innerHTML    = originalHTML;
+            btn.style.color  = '';
+            btn.style.opacity = '';
+            btn.disabled     = false;
+          }, 4000);
+        } else {
+          throw new Error('Server error');
+        }
+      } catch {
+        btn.innerHTML      = 'Failed — try again';
+        btn.style.color    = '#e55';
+        btn.style.opacity  = '1';
+
+        setTimeout(() => {
+          btn.innerHTML    = originalHTML;
+          btn.style.color  = '';
+          btn.style.opacity = '';
+          btn.disabled     = false;
+        }, 4000);
+      }
     });
   }
 
