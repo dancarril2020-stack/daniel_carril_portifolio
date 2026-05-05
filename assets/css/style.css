@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════
-   style.css — John Doe Portfolio
-   Author: John Doe
+   style.css — Daniel Carril Portfolio
+   Author: Daniel Carril
    Description: Main stylesheet for portfolio landing page
 ═══════════════════════════════════════════════════════════════ */
 
@@ -40,6 +40,59 @@
   --radius-pill:    999px;
 
   --transition:     0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ═══════════════════════════════════════════
+   LIGHT THEME OVERRIDES
+═══════════════════════════════════════════ */
+html[data-theme="light"] {
+  --bg-base:        #f4f6fc;
+  --bg-surface:     #edf0f8;
+  --bg-elevated:    #e5e9f4;
+  --bg-strip:       #eff2fa;
+  --bg-footer:      #e8ecf5;
+
+  --border:         #cdd5e8;
+  --border-soft:    #d8dff0;
+
+  --text-primary:   #111827;
+  --text-secondary: #4a5568;
+  --text-muted:     #7a8899;
+  --text-dim:       #a0b0c0;
+
+  --accent:         #7a8899;
+  --accent-light:   #4a5568;
+  --accent-bright:  #1a2035;
+  --btn-bg:         #cdd5e8;
+  --btn-hover:      #bdc5d8;
+  --tag-bg:         #dce5f4;
+}
+
+html[data-theme="light"] .site-header {
+  background: rgba(244, 246, 252, 0.95);
+}
+
+html[data-theme="light"] nav[aria-label="Main navigation"] {
+  background: rgba(244, 246, 252, 0.97) !important;
+}
+
+html[data-theme="light"] .brand-chip {
+  background: #ffffff;
+}
+
+html[data-theme="light"] .project-card:nth-child(1) .project-thumb,
+html[data-theme="light"] .project-card:nth-child(2) .project-thumb,
+html[data-theme="light"] .project-card:nth-child(3) .project-thumb,
+html[data-theme="light"] .project-card:nth-child(4) .project-thumb,
+html[data-theme="light"] .project-card:nth-child(5) .project-thumb {
+  background: linear-gradient(135deg, #dde6f8 0%, #d4e0f4 100%);
+}
+
+/* Brief transition applied only during the theme switch */
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
 }
 
 
@@ -158,6 +211,42 @@ nav[aria-label="Main navigation"] {
   box-shadow: 0 4px 16px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.28);
   transform: translateY(-1px);
 }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: linear-gradient(160deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.04) 100%);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.18);
+  transition: border-color var(--transition), color var(--transition), background var(--transition), box-shadow var(--transition), transform var(--transition);
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: rgba(255,255,255,0.24);
+  color: var(--text-primary);
+  background: linear-gradient(160deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.08) 100%);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.28);
+  transform: translateY(-1px);
+}
+
+/* dark mode: show sun (click → go light); light mode: show moon (click → go dark) */
+.icon-moon                          { display: none; }
+html[data-theme="light"] .icon-sun  { display: none; }
+html[data-theme="light"] .icon-moon { display: block; }
 
 
 /* ═══════════════════════════════════════════
@@ -937,17 +1026,86 @@ footer {
 
 
 /* ═══════════════════════════════════════════
+   HAMBURGER BUTTON (hidden on desktop)
+═══════════════════════════════════════════ */
+.menu-toggle {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════ */
 @media (max-width: 900px) {
   .hero-inner          { grid-template-columns: 1fr; }
-  .profile-card        { display: none; }
+  .profile-card        { max-width: 320px; margin: 0 auto; }
   .contact-inner       { grid-template-columns: 1fr; gap: 40px; }
   .work-header         { flex-direction: column; align-items: flex-start; gap: 16px; }
   section              { padding: 80px 20px 40px; }
   .site-header         { padding: 0 20px; }
   footer               { padding: 18px 20px; }
   nav[aria-label="Main navigation"] { gap: 20px; }
-  .nav-link            { display: none; }
-  .nav-link:last-of-type { display: block; }
+}
+
+@media (max-width: 600px) {
+  .btn-hire {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+
+  .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  nav[aria-label="Main navigation"] {
+    display: none;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background: rgba(6, 10, 22, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 20px;
+    gap: 0;
+  }
+
+  nav[aria-label="Main navigation"].open { display: flex; }
+
+  .nav-link {
+    display: block;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-soft);
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  .nav-link:last-child { border-bottom: none; }
 }

@@ -163,6 +163,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────────────
+     HAMBURGER MENU
+  ───────────────────────────────────────── */
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileNav  = document.querySelector('nav[aria-label="Main navigation"]');
+
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.classList.toggle('open');
+      mobileNav.classList.toggle('open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    mobileNav.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('open');
+        mobileNav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation menu');
+      });
+    });
+  }
+
+
+  /* ─────────────────────────────────────────
+     THEME TOGGLE
+  ───────────────────────────────────────── */
+  const themeToggle = document.querySelector('.theme-toggle');
+  const htmlEl      = document.documentElement;
+
+  function applyTheme(theme) {
+    htmlEl.dataset.theme = theme;
+    if (themeToggle) {
+      themeToggle.setAttribute(
+        'aria-label',
+        theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'
+      );
+    }
+  }
+
+  applyTheme(localStorage.getItem('theme') || 'light');
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const next = htmlEl.dataset.theme === 'light' ? 'dark' : 'light';
+      htmlEl.classList.add('theme-transition');
+      applyTheme(next);
+      localStorage.setItem('theme', next);
+      setTimeout(() => htmlEl.classList.remove('theme-transition'), 300);
+    });
+  }
+
+
+  /* ─────────────────────────────────────────
      CONTACT FORM — Formspree submission
   ───────────────────────────────────────── */
   const form = document.querySelector('.contact-form');
