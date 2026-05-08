@@ -1,0 +1,6 @@
+/*
+  Content-Security-Policy: default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'sha256-d3LEBTssm3Ud7qvbYcGCgK0Aavlafrx0oPczMRd+Lv4='; form-action https://formspree.io; connect-src https://formspree.io; img-src 'self' data:;
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
