@@ -219,8 +219,8 @@ nav[aria-label="Main navigation"] {
 }
 
 .theme-toggle {
-  width: 36px;
-  height: 36px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.14);
   background: linear-gradient(160deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.04) 100%);
@@ -234,6 +234,7 @@ nav[aria-label="Main navigation"] {
   box-shadow: 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.18);
   transition: border-color var(--transition), color var(--transition), background var(--transition), box-shadow var(--transition), transform var(--transition);
   flex-shrink: 0;
+  margin-right: 20px;
 }
 .theme-toggle:hover {
   border-color: rgba(255,255,255,0.24);
