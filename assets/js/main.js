@@ -229,6 +229,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const originalHTML = btn.innerHTML;
       const data         = new FormData(form);
 
+      const name    = data.get('name')?.trim();
+      const email   = data.get('email')?.trim();
+      const message = data.get('message')?.trim();
+
+      if (!name || !email || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        btn.innerHTML = 'Please fill all fields correctly';
+        setTimeout(() => { btn.innerHTML = originalHTML; }, 3000);
+        return;
+      }
+
       btn.disabled   = true;
       btn.innerHTML  = 'Sending…';
       btn.style.opacity = '0.7';
