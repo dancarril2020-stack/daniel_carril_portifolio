@@ -895,6 +895,9 @@ h3.project-title {
 .contact-info-item a:hover .contact-info-text { color: var(--text-primary); }
 
 /* form */
+/* Hides Formspree's bot-trap field; inline style blocked by CSP in production */
+.form-honeypot { display: none; }
+
 .contact-form {
   background: var(--bg-surface);
   border: 1px solid var(--border);
