@@ -145,7 +145,8 @@
             <div class="profile-tags" aria-label="Technology skills">
               <span class="tag">React</span>
               <span class="tag">Node.js</span>
-              <span class="tag">Firebase</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">Python</span>
               <span class="tag">TypeScript</span>
               <span class="tag">JavaScript</span>
               <span class="tag">Wordpress</span>
@@ -241,16 +242,40 @@
       <div class="carousel-outer" role="region" aria-label="Project portfolio carousel">
         <div class="carousel-track" id="carouselTrack">
 
-          <article class="project-card fade-up" aria-label="Project: E-commerce Platform">
-            <div class="project-thumb" role="img" aria-label="E-commerce Platform screenshot">
-              <img src="assets/images/logo3_tracker.png" alt="E-commerce Platform" loading="lazy" />
+          <article class="project-card fade-up" aria-label="Project: Serra Nature Access Automation">
+            <div class="project-thumb thumb-serra" role="img" aria-label="Serra Nature access automation">
+              <svg class="thumb-serra-art" viewBox="0 0 340 180" aria-hidden="true">
+                <rect x="136" y="58" width="68" height="56" rx="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M152 58v-10a18 18 0 0 1 36 0v10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="170" cy="82" r="6" fill="currentColor"/>
+                <path d="M170 88v10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <text x="170" y="144" text-anchor="middle" class="thumb-serra-name">SERRA NATURE</text>
+                <text x="170" y="162" text-anchor="middle" class="thumb-serra-sub">PMS → Smart locks → Guests</text>
+              </svg>
+              <span class="project-status status-live">In production</span>
+            </div>
+            <div class="project-body">
+              <span class="project-type-tag">Automation · Backend</span>
+              <h3 class="project-title">Serra Nature Access System</h3>
+              <p class="project-stack">Python · asyncio · OAuth 2.0 · WhatsApp Cloud API · SMTP · pytest</p>
+              <p class="project-desc">Production system for a 15-villa boutique hotel: syncs Avirato PMS bookings with Akiles smart locks to create, update and revoke guest access automatically, and delivers credentials by email and WhatsApp. Caching cut external API calls ~100×. Next phase: FastAPI, PostgreSQL and a React panel.</p>
+              <div class="project-divider" aria-hidden="true"></div>
+              <div class="project-links">
+                <span class="project-link project-link-private">Private client repo</span>
+              </div>
+            </div>
+          </article>
 
+          <article class="project-card fade-up" aria-label="Project: Logistics SaaS Platform">
+            <div class="project-thumb" role="img" aria-label="Logistics SaaS Platform logo">
+              <img src="assets/images/logo3_tracker.png" alt="Tracker 365 logistics platform" loading="lazy" />
+              <span class="project-status status-live">Live · Active development</span>
             </div>
             <div class="project-body">
               <span class="project-type-tag">Web App</span>
               <h3 class="project-title">SaaS Platform</h3>
-              <p class="project-stack">React · TypeScript · Node.js · Vite · Firebase</p>
-              <p class="project-desc">Multi-tenant logistics platform with real-time tracking, role-based dashboards, and native QR-driven delivery workflows.s</p>
+              <p class="project-stack">React · TypeScript · Vite · Supabase · Node.js</p>
+              <p class="project-desc">Multi-tenant logistics platform with real-time tracking, role-based dashboards for drivers, suppliers and back office, and QR-driven delivery workflows. Recently migrated from Firebase to Supabase (auth, data and real-time listeners) and added password reset and supplier-scoped catalogs.</p>
               <div class="project-divider" aria-hidden="true"></div>
               <div class="project-links">
                 <a href="https://tracker-app-c6b36.web.app" class="project-link" aria-label="View live SaaS Platform">Live ↗</a>
@@ -259,14 +284,32 @@
             </div>
           </article>
 
-          <article class="project-card fade-up" aria-label="Project: Profesional Landing Page">
-            <div class="project-thumb" role="img" aria-label="Profesional Landing Page">
+          <article class="project-card fade-up" aria-label="Project: Minister-App">
+            <div class="project-thumb" role="img" aria-label="Minister-App dashboard design">
+              <img src="assets/images/minister_app_dashboard.webp" alt="Minister-App dashboard" loading="lazy" />
+              <span class="project-status status-progress">In progress · Epic 1 of 6</span>
+            </div>
+            <div class="project-body">
+              <span class="project-type-tag">PWA · Open Source</span>
+              <h3 class="project-title">Minister-App</h3>
+              <p class="project-stack">React · TypeScript · Vite · Tailwind · Azure Functions · Cosmos DB</p>
+              <p class="project-desc">Mobile-first PWA for managing and tracking ministering efforts: directories, interactive maps and metrics. The front end (dashboard, partnership list and detail, formation view) is done; next up are the Azure API, JWT login, Leaflet zone maps and Gemini-powered assignment suggestions.</p>
+              <div class="project-divider" aria-hidden="true"></div>
+              <div class="project-links">
+                <a href="https://github.com/dancarril2020-stack/Minister-app" class="project-link project-link-gh" aria-label="Minister-App on GitHub">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card fade-up" aria-label="Project: Professional Landing Page">
+            <div class="project-thumb" role="img" aria-label="Reformas Valudain landing page">
               <img src="assets/images/logo.png" alt="Reformas Valudain" loading="lazy" />
+              <span class="project-status status-live">Live</span>
               
             </div>
             <div class="project-body">
               <span class="project-type-tag">Landing Page</span>
-              <h3 class="project-title">Profesional Landing Page</h3>
+              <h3 class="project-title">Professional Landing Page</h3>
               <p class="project-stack">WordPress · JavaScript · Google Calendar · SEO</p>
               <p class="project-desc">High-performance construction landing page with automated Google Calendar booking, custom JavaScript interactions, and full SEO optimization.</p>
               <div class="project-divider" aria-hidden="true"></div>
@@ -277,14 +320,15 @@
             </div>
           </article>
 
-          <article class="project-card fade-up" aria-label="ONG Web site">
-            <div class="project-thumb" role="img" aria-label="SaaS Dashboard screenshot">
-              <img src="assets/images/adampi_logo4.png" alt="SaaS Dashboard" loading="lazy" style="position: fit;"/>
+          <article class="project-card fade-up" aria-label="Project: NGO Website">
+            <div class="project-thumb" role="img" aria-label="Adampi Valencia website">
+              <img src="assets/images/adampi_logo4.png" alt="Adampi Valencia" loading="lazy" />
+              <span class="project-status status-live">Live</span>
               
             </div>
             <div class="project-body">
-              <span class="project-type-tag">ONG Web Site</span>
-              <h3 class="project-title">ONG Web Site</h3>
+              <span class="project-type-tag">NGO Website</span>
+              <h3 class="project-title">NGO Website</h3>
               <p class="project-stack">WordPress · Elementor · Stripe</p>
               <p class="project-desc">Impact-driven WordPress site featuring an integrated donation system, secure payment processing, and streamlined donor management tools.</p>
               <div class="project-divider" aria-hidden="true"></div>
@@ -430,7 +474,7 @@
        FOOTER
   ═══════════════════════════════════════════ -->
   <footer role="contentinfo">
-    <span class="footer-copy">© 2025 Daniel Carril. All rights reserved.</span>
+    <span class="footer-copy">© 2026 Daniel Carril. All rights reserved.</span>
     <span class="footer-right">dancarril22@gmail.com</span>
   </footer>
 
