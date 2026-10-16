@@ -1025,6 +1025,8 @@ h1.hero-heading {
   border-radius: var(--radius-md);
   overflow: hidden;
   transition: border-color var(--transition), transform var(--transition);
+  display: flex;
+  flex-direction: column;
 }
 .project-card:hover {
   border-color: var(--accent);
@@ -1104,25 +1106,70 @@ h1.hero-heading {
 .project-status.status-live::before     { background: #22c55e; }
 .project-status.status-progress::before { background: #f59e0b; }
 
-/* ── Serra Nature: drawn thumbnail instead of a screenshot ── */
-.project-card .project-thumb.thumb-serra,
-html[data-theme="light"] .project-card .project-thumb.thumb-serra {
-  background: linear-gradient(135deg, #0f2a22 0%, #16382d 100%);
-  color: #cfe8dc;
+/* ── Serra Nature: official logo card thumbnail ── */
+.project-card .project-thumb.thumb-serra {
+  background: linear-gradient(145deg, #0d241c 0%, #17382c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
-.thumb-serra-art { width: 100%; height: 100%; }
-.thumb-serra-name {
+
+html[data-theme="light"] .project-card .project-thumb.thumb-serra {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.thumb-serra-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  text-align: center;
+  padding: 12px;
+}
+
+.thumb-serra-img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain !important;
+  filter: brightness(0) invert(1);
+  transition: transform var(--transition);
+}
+
+html[data-theme="light"] .thumb-serra-img {
+  filter: none;
+}
+
+.thumb-serra-title {
   font-family: var(--font-display);
   font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  fill: currentColor;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #e6f3ed;
+  line-height: 1.1;
 }
-.thumb-serra-sub {
+
+html[data-theme="light"] .thumb-serra-title {
+  color: #1c2e27;
+}
+
+.thumb-serra-subtitle {
   font-family: var(--font-body);
-  font-size: 10px;
-  fill: currentColor;
-  opacity: 0.7;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: #a3c4b5;
+  text-transform: uppercase;
+}
+
+html[data-theme="light"] .thumb-serra-subtitle {
+  color: #556b62;
+}
+
+.project-card:hover .thumb-serra-img {
+  transform: scale(1.08);
 }
 
 /* ── Label for projects whose code is private ── */
@@ -1132,7 +1179,14 @@ html[data-theme="light"] .project-card .project-thumb.thumb-serra {
 }
 
 .project-body {
-  padding: 20px 22px 18px;
+  padding: 22px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-desc {
+  flex: 1;
 }
 
 .project-type-tag {
